@@ -1,26 +1,35 @@
 # Servland - Business Landing Page Astro Theme
 
+![GitHub](https://img.shields.io/github/license/locobean/servland)
+![GitHub package.json version](https://img.shields.io/github/package-json/v/locobean/servland)
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/locobean/servland/ci.yml)
+[![Astro](https://img.shields.io/badge/Built%20with-Astro-FF5D01.svg?logo=astro)](https://astro.build)
+[![Tailwind CSS](https://img.shields.io/badge/Built%20with-Tailwind%20CSS-38B2AC.svg?logo=tailwind-css)](https://tailwindcss.com)
+
 ![Servland Theme](preview.png)
 
 A modern, responsive, and accessible theme built with Astro and Tailwind CSS, perfect for service-based businesses and professional portfolios.
 
 ## 🚀 Features
 
-- ⚡️ Lightning-fast performance with Astro
-- 🎨 Stunning UI with Tailwind CSS
-- 🌙 Dark/Light mode toggle
-- 📱 Fully responsive design
-- ♿️ WCAG 2.1 Accessible
-- 📧 Contact form with PHP backend
-- 🍪 Cookie consent banner
-- 🎯 Smooth scroll navigation
-- 🖼️ Animated background effects
-- 🔍 SEO optimized
+- ⚡️ **Lightning Fast**: Built with Astro for optimal performance
+- 🌙 **Dark Mode**: Elegant dark mode support with system preference detection
+- 📱 **Fully Responsive**: Looks great on all devices
+- 🎨 **Modern Design**: Clean and professional business landing page
+- 🔍 **SEO Optimized**: Meta tags, Open Graph, Twitter Cards
+- 📨 **Contact Form**: Ready-to-use PHP contact form
+- 🌅 **Parallax Effects**: Smooth scrolling parallax background
+- 🎯 **Analytics Ready**: Easy to add your analytics code
+- ♿️ **WCAG 2.1 Accessible**: ARIA labels, keyboard navigation, screen reader friendly
+- 📧 **Cookie Consent**: GDPR compliant cookie notice
+- 🖼️ **Animated Background**: Gradient circles with blur effects
+- 🔝 **Smooth Scroll Navigation**: Smooth scroll-to-top functionality
 
 ## 🛠️ Tech Stack
 
 - [Astro](https://astro.build)
 - [Tailwind CSS](https://tailwindcss.com)
+- [TypeScript](https://www.typescriptlang.org/)
 - PHP (for form handling)
 
 ## 📦 Project Structure
