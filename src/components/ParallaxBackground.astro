@@ -1,43 +1,35 @@
 ---
 ---
 <div class="fixed inset-0 -z-10 overflow-hidden">
-  <!-- Abstract shapes -->
-  <div class="absolute inset-0 bg-gradient-to-br from-blue-50 to-purple-50 dark:from-gray-900 dark:to-gray-800">
-    <div class="absolute top-0 left-0 w-96 h-96 bg-purple-300/20 dark:bg-purple-600/10 rounded-full filter blur-3xl transform -translate-x-1/2 -translate-y-1/2 animate-float"></div>
-    <div class="absolute top-1/4 right-0 w-96 h-96 bg-blue-300/20 dark:bg-blue-600/10 rounded-full filter blur-3xl transform translate-x-1/2 animate-float-delayed"></div>
-    <div class="absolute bottom-0 left-1/3 w-96 h-96 bg-indigo-300/20 dark:bg-indigo-600/10 rounded-full filter blur-3xl animate-float-slow"></div>
-  </div>
+  <!-- Background gradient -->
+  <div class="absolute inset-0 bg-gradient-to-br from-blue-50 to-purple-50 dark:from-gray-900/80 dark:to-gray-800/80"></div>
   
-  <!-- Grid pattern -->
-  <div class="absolute inset-0 bg-grid-pattern opacity-10 dark:opacity-5"></div>
+  <!-- Cityscape background with parallax -->
+  <div class="absolute inset-0 cityscape-background"></div>
+  
+  <!-- Grid overlay -->
+  <div class="absolute inset-0 bg-grid-pattern opacity-5 dark:opacity-10"></div>
 </div>
 
 <style>
-  @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-20px); }
+  .cityscape-background {
+    background-image: url('/sl-sky.webp');
+    background-position: bottom center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    transform-origin: bottom;
+    animation: parallax 25s ease-in-out infinite;
+    opacity: 0.15;
+    filter: blur(1px);
   }
 
-  @keyframes float-delayed {
-    0%, 100% { transform: translateY(0) translateX(50%); }
-    50% { transform: translateY(-20px) translateX(50%); }
-  }
-
-  @keyframes float-slow {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-15px); }
-  }
-
-  .animate-float {
-    animation: float 15s ease-in-out infinite;
-  }
-
-  .animate-float-delayed {
-    animation: float-delayed 18s ease-in-out infinite;
-  }
-
-  .animate-float-slow {
-    animation: float-slow 20s ease-in-out infinite;
+  @keyframes parallax {
+    0%, 100% {
+      transform: translateY(0) scale(1.05);
+    }
+    50% {
+      transform: translateY(-15px) scale(1);
+    }
   }
 
   .bg-grid-pattern {
@@ -46,3 +38,15 @@
     background-size: 50px 50px;
   }
 </style>
+
+<script>
+  // Add parallax effect based on scroll
+  window.addEventListener('scroll', () => {
+    const cityscape = document.querySelector('.cityscape-background');
+    if (cityscape) {
+      const scrolled = window.pageYOffset;
+      const rate = scrolled * 0.15;
+      cityscape.style.transform = `translateY(${rate}px) scale(${1 + scrolled * 0.0001})`;
+    }
+  });
+</script>

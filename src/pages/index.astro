@@ -1,16 +1,27 @@
 ---
+/**
+ * @file index.astro
+ * @description Main landing page for the Servland theme
+ * @author Your Name
+ * @version 1.0.0
+ */
+
+// Import required components and layouts
 import Layout from '../layouts/Layout.astro';
 import ParallaxBackground from '../components/ParallaxBackground.astro';
 import ScrollToTop from '../components/ScrollToTop.astro';
 import ThemeToggle from '../components/ThemeToggle.astro';
 ---
 
-<Layout title="Professional Services">
+<!-- Main Layout with SEO title -->
+<Layout title="Servland Services">
+  <!-- Background Components -->
   <ParallaxBackground />
   <ScrollToTop />
   
-  <!-- Header -->
+  <!-- Header Section -->
   <header class="sticky top-0 z-50 bg-gradient-to-r from-blue-500 to-purple-600 dark:from-blue-600 dark:to-purple-800 font-poppins">
+    <!-- Decorative elements -->
     <div class="absolute inset-0 bg-black/5 dark:bg-black/20 backdrop-blur-md"></div>
     <!-- Decorative elements -->
     <div class="absolute inset-0 overflow-hidden">
@@ -19,10 +30,12 @@ import ThemeToggle from '../components/ThemeToggle.astro';
     </div>
     <div class="container mx-auto px-4 py-4 flex justify-between items-center relative z-10">
       <div class="flex items-center space-x-2">
-        <div class="w-8 h-8 rounded-lg bg-white/20 flex items-center justify-center">
-          <span class="text-white">L</span>
-        </div>
-        <span class="text-white">Logo</span>
+        <a href="/" class="flex items-center space-x-2">
+          <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center shadow-lg">
+            <span class="text-white font-bold">SL</span>
+          </div>
+          <span class="text-white font-semibold text-lg">Servland</span>
+        </a>
       </div>
 
       <div class="flex-1 flex items-center justify-center px-4">
@@ -58,7 +71,7 @@ import ThemeToggle from '../components/ThemeToggle.astro';
       </div>
 
       <!-- Box 2: Services -->
-      <div class="[grid-area:box2] bg-gradient-to-br from-blue-500 to-purple-600 dark:from-blue-600 dark:to-purple-800 rounded-lg p-8 animate-slide-up relative overflow-hidden shadow-xl">
+      <div id="services" class="[grid-area:box2] bg-gradient-to-br from-blue-500 to-purple-600 dark:from-blue-600 dark:to-purple-800 rounded-lg p-8 animate-slide-up relative overflow-hidden shadow-xl">
         <!-- Decorative circles -->
         <div class="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full transform translate-x-1/2 -translate-y-1/2"></div>
         <div class="absolute bottom-0 left-0 w-48 h-48 bg-white/10 rounded-full transform -translate-x-1/2 translate-y-1/2"></div>
@@ -83,9 +96,9 @@ import ThemeToggle from '../components/ThemeToggle.astro';
           <h3 class="text-2xl font-semibold mb-6 dark:text-white flex items-center font-poppins">
             <svg class="w-8 h-8 mr-3 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-              </svg>
-              Message Us
-            </h3>
+            </svg>
+            Contact Us
+          </h3>
           <form 
             action="/send-email.php" 
             method="POST" 
@@ -101,7 +114,8 @@ import ThemeToggle from '../components/ThemeToggle.astro';
                 id="name"
                 name="name"
                 required
-                class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:ring-brand-blue focus:border-brand-blue dark:bg-gray-700 dark:text-white"
+                placeholder="Enter your name"
+                class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:ring-brand-blue dark:focus:ring-blue-400 focus:border-brand-blue dark:focus:border-blue-400 dark:bg-gray-700 dark:text-white placeholder-gray-400 dark:placeholder-gray-500"
               />
             </div>
 
@@ -112,7 +126,8 @@ import ThemeToggle from '../components/ThemeToggle.astro';
                 id="email"
                 name="email"
                 required
-                class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:ring-brand-blue focus:border-brand-blue dark:bg-gray-700 dark:text-white"
+                placeholder="Enter your email"
+                class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:ring-brand-blue dark:focus:ring-blue-400 focus:border-brand-blue dark:focus:border-blue-400 dark:bg-gray-700 dark:text-white placeholder-gray-400 dark:placeholder-gray-500"
               />
             </div>
 
@@ -124,7 +139,7 @@ import ThemeToggle from '../components/ThemeToggle.astro';
                 name="tel"
                 required
                 placeholder="Enter your phone number"
-                class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:ring-brand-blue focus:border-brand-blue dark:bg-gray-700 dark:text-white"
+                class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:ring-brand-blue dark:focus:ring-blue-400 focus:border-brand-blue dark:focus:border-blue-400 dark:bg-gray-700 dark:text-white placeholder-gray-400 dark:placeholder-gray-500"
               />
             </div>
 
@@ -135,7 +150,8 @@ import ThemeToggle from '../components/ThemeToggle.astro';
                 name="message"
                 rows="4"
                 required
-                class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:ring-brand-blue focus:border-brand-blue dark:bg-gray-700 dark:text-white"
+                placeholder="Type your message here..."
+                class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:ring-brand-blue dark:focus:ring-blue-400 focus:border-brand-blue dark:focus:border-blue-400 dark:bg-gray-700 dark:text-white placeholder-gray-400 dark:placeholder-gray-500"
               ></textarea>
             </div>
 
@@ -251,10 +267,12 @@ import ThemeToggle from '../components/ThemeToggle.astro';
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         <div>
           <div class="flex items-center space-x-2 mb-4">
-            <div class="w-8 h-8 rounded-lg bg-white/20 flex items-center justify-center">
-              <span class="text-white">L</span>
-            </div>
-            <span class="text-white">Logo</span>
+            <a href="/" class="flex items-center space-x-2">
+              <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center shadow-lg">
+                <span class="text-white font-bold">SL</span>
+              </div>
+              <span class="text-white font-semibold text-lg">Servland</span>
+            </a>
           </div>
           <div class="font-medium text-gray-100">Address 1</div>
           <div class="font-medium text-gray-100">Address 2</div>
@@ -263,10 +281,10 @@ import ThemeToggle from '../components/ThemeToggle.astro';
         <div>
           <h3 class="text-xl font-semibold mb-4 font-poppins">Services:</h3>
           <ul class="space-y-2 font-medium text-gray-100">
-            <li class="hover:text-white transition-colors"><a href="#" class="hover:underline">Service 1</a></li>
-            <li class="hover:text-white transition-colors"><a href="#" class="hover:underline">Service 2</a></li>
-            <li class="hover:text-white transition-colors"><a href="#" class="hover:underline">Service 3</a></li>
-            <li class="hover:text-white transition-colors"><a href="#" class="hover:underline">Service 4</a></li>
+            <li class="hover:text-white transition-colors"><a href="#services" class="hover:underline">Service 1</a></li>
+            <li class="hover:text-white transition-colors"><a href="#services" class="hover:underline">Service 2</a></li>
+            <li class="hover:text-white transition-colors"><a href="#services" class="hover:underline">Service 3</a></li>
+            <li class="hover:text-white transition-colors"><a href="#services" class="hover:underline">Service 4</a></li>
           </ul>
         </div>
         <div>
@@ -286,24 +304,85 @@ import ThemeToggle from '../components/ThemeToggle.astro';
             </li>
           </ul>
           <div class="flex items-center space-x-4 mt-6">
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="hover:opacity-80 transition-opacity bg-white/10 p-2 rounded-full hover:bg-white/20">
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="hover:opacity-80 transition-opacity bg-white/10 p-2 rounded-full hover:bg-white/20" aria-label="Visit our Facebook page">
               <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <title>Facebook</title>
                 <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/>
               </svg>
             </a>
-            <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="hover:opacity-80 transition-opacity bg-white/10 p-2 rounded-full hover:bg-white/20">
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+            <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="hover:opacity-80 transition-opacity bg-white/10 p-2 rounded-full hover:bg-white/20" aria-label="Visit our X (Twitter) page">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <title>X (Twitter)</title>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
               </svg>
             </a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="hover:opacity-80 transition-opacity bg-white/10 p-2 rounded-full hover:bg-white/20">
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="hover:opacity-80 transition-opacity bg-white/10 p-2 rounded-full hover:bg-white/20" aria-label="Visit our Instagram page">
               <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44-.795 0-1.439.645-.644.645-1.439 1.44-.795 0-1.439-.645-.644-.645-1.439-1.44.795 0 1.439.645.644.645 1.439 1.44.795 0 1.439-.645 1.439-1.44z"/>
+                <title>Instagram</title>
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
               </svg>
             </a>
           </div>
         </div>
       </div>
+      <div class="mt-8 text-center text-sm text-gray-100 border-t border-white/10 pt-8">
+        <p class="flex items-center justify-center space-x-1">
+          &copy;
+          <span>2025 Servland. All Rights Reserved.</span>
+        </p>
+      </div>
     </div>
   </footer>
 </Layout>
+
+<!-- Client-side Form Handling Script -->
+<script>
+  /**
+   * Contact form submission handler
+   * Manages form submission, validation, and user feedback
+   */
+  document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('contactForm');
+    const formMessage = document.getElementById('formMessage');
+    const submitButton = form?.querySelector('button[type="submit"]');
+    const loadingSpinner = submitButton?.querySelector('.loading');
+
+    if (form && formMessage && submitButton && loadingSpinner) {
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        // Show loading state
+        submitButton.disabled = true;
+        loadingSpinner.classList.remove('hidden');
+        
+        try {
+          const formData = new FormData(form);
+          const response = await fetch(form.action, {
+            method: 'POST',
+            body: formData,
+          });
+          
+          const result = await response.json();
+          
+          // Display success/error message
+          formMessage.textContent = result.message;
+          formMessage.className = result.success 
+            ? 'mt-4 text-green-500 dark:text-green-400'
+            : 'mt-4 text-red-500 dark:text-red-400';
+          
+          // Reset form on success
+          if (result.success) {
+            form.reset();
+          }
+        } catch (error) {
+          formMessage.textContent = 'An error occurred. Please try again later.';
+          formMessage.className = 'mt-4 text-red-500 dark:text-red-400';
+        } finally {
+          // Reset button state
+          submitButton.disabled = false;
+          loadingSpinner.classList.add('hidden');
+        }
+      });
+    }
+  });
+</script>
