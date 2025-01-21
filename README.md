@@ -1,111 +1,67 @@
-# ServLand - Modern Business Landing Page Theme
+# Servland - Business Landing Page Theme
 
-A sleek, responsive business landing page theme built with [Astro](https://astro.build) and [Tailwind CSS](https://tailwindcss.com). Perfect for service-based businesses, agencies, and professional portfolios.
+A modern, responsive business landing page theme built with Astro and Tailwind CSS. Perfect for businesses looking for a professional online presence.
 
-![ServLand Preview](preview.png)
+![Servland Preview](preview.png)
 
-## ✨ Features
+## 🚀 Features
 
-- 🚀 Built with Astro 4.x and Tailwind CSS
-- 📱 Fully responsive design
-- 🌙 Dark mode support
-- 📧 Contact form with email integration
-- 🔒 reCAPTCHA protection
-- 🎨 Customizable design system
-- 🎯 SEO optimized
-- 📦 Zero JavaScript by default
-- ⚡ Excellent performance scores
+- ⚡️ **Lightning Fast**: Built with Astro for optimal performance
+- 🎨 **Beautiful Design**: Modern UI with Tailwind CSS
+- 🌗 **Dark Mode**: Automatic and manual dark mode support
+- 📱 **Fully Responsive**: Looks great on all devices
+- 📧 **Contact Form**: Integrated with EmailJS or Nodemailer
+- 💬 **WhatsApp Integration**: Direct messaging capability
+- 🍪 **Cookie Consent**: GDPR-compliant cookie banner
+- 🖼️ **Parallax Effects**: Engaging background animations
+- 🔍 **SEO Ready**: Optimized meta tags and structured data
+- 🛠️ **Easy to Customize**: Well-organized code structure
 
-## 🚀 Getting Started
+## 🛠️ Quick Start
 
-### Prerequisites
-
-- Node.js 18 or higher
-- npm or pnpm
-
-### Installation
-
-1. Clone the repository:
+1. **Clone the repository**
 ```bash
-git clone https://github.com/locobean/servland.git
+git clone https://github.com/yourusername/servland.git
 cd servland
 ```
 
-2. Install dependencies:
+2. **Install dependencies**
 ```bash
 npm install
-# or
-pnpm install
 ```
 
-3. Copy the environment variables:
+3. **Set up environment variables**
 ```bash
 cp .env.example .env
 ```
 
-4. Update the `.env` file with your configuration:
-- SMTP settings for the contact form
-- reCAPTCHA keys (optional)
-- EmailJS configuration (optional)
-
-### Development
-
-Start the development server:
+4. **Start development server**
 ```bash
 npm run dev
-# or
-pnpm dev
 ```
 
-### Build
+Visit `http://localhost:4321` to see your site!
 
-Create a production build:
-```bash
-npm run build
-# or
-pnpm build
-```
+## 📧 Email Configuration
 
-Preview the build:
-```bash
-npm run preview
-# or
-pnpm preview
-```
+### Option 1: EmailJS (Recommended for Static Sites)
 
-## 📧 Contact Form Configuration
-
-The theme includes a contact form that needs to be configured with an email service to handle form submissions. By default, the project is set up to use [EmailJS](https://www.emailjs.com/), but you can modify it to work with your preferred email service provider.
-
-### Setting up EmailJS
-
-1. Create a free account at [EmailJS](https://www.emailjs.com/)
-2. Create an email service and template in your EmailJS dashboard
-3. Update your `.env` file with your EmailJS credentials:
+1. Create an account at [EmailJS](https://www.emailjs.com/)
+2. Create an email template with variables:
+   - `{{name}}` - Sender's name
+   - `{{email}}` - Sender's email
+   - `{{tel}}` - Phone number
+   - `{{message}}` - Message content
+3. Add credentials to `.env`:
 ```env
-EMAILJS_SERVICE_ID=your-service-id
-EMAILJS_TEMPLATE_ID=your-template-id
-EMAILJS_USER_ID=your-public-key
+PUBLIC_EMAILJS_SERVICE_ID=your-service-id
+PUBLIC_EMAILJS_TEMPLATE_ID=your-template-id
+PUBLIC_EMAILJS_USER_ID=your-public-key
 ```
 
-### Using a Different Email Service
+### Option 2: Nodemailer with SMTP
 
-You can modify the contact form to work with any email service of your choice:
-
-1. Choose your preferred email service provider (SendGrid, AWS SES, etc.)
-2. Update the form submission logic in `src/components/ContactForm.astro`
-3. Modify the environment variables in `.env` accordingly
-
-### Email Configuration
-
-The contact form supports two methods for handling email submissions:
-
-#### Method 1: Nodemailer with SMTP
-
-This method uses Nodemailer to send emails via SMTP. Ideal for Gmail or other email providers.
-
-1. Copy `.env.example` to `.env`
-2. Configure the following variables in your `.env` file:
+1. Configure SMTP settings in `.env`:
 ```env
 EMAIL_USERNAME=your-email@example.com
 EMAIL_PASSWORD=your-app-specific-password
@@ -113,67 +69,58 @@ RECIPIENT_EMAIL=recipient@example.com
 SECRET_KEY=your-secret-key-for-hashing
 ```
 
-Note: For Gmail, you'll need to use an App-Specific Password. [Learn how to generate one](https://support.google.com/accounts/answer/185833?hl=en)
-
-#### Method 2: EmailJS
-
-This method uses EmailJS for handling email submissions. No server setup required.
-
-1. Create an account at [EmailJS](https://www.emailjs.com/)
-2. Create an email template with the following variables:
-   - `{{name}}` - Sender's name
-   - `{{email}}` - Sender's email
-   - `{{tel}}` - Phone number
-   - `{{message}}` - Message content
-
-3. Configure the following variables in your `.env` file:
-```env
-PUBLIC_EMAILJS_SERVICE_ID=your-service-id
-PUBLIC_EMAILJS_TEMPLATE_ID=your-template-id
-PUBLIC_EMAILJS_USER_ID=your-public-key
-```
-
-### reCAPTCHA Integration (Optional)
-
-To protect your form from spam:
-
-1. Get your reCAPTCHA keys from [Google reCAPTCHA](https://www.google.com/recaptcha/admin)
-2. Add them to your `.env`:
-```env
-PUBLIC_RECAPTCHA_SITE_KEY=your-site-key
-RECAPTCHA_SECRET_KEY=your-secret-key
-```
-
-### Security Notes
-
-- Never commit your `.env` file to version control
-- Use HTTPS in production
-- Regularly update your dependencies
-- Consider implementing rate limiting
-- Monitor your email service for any abuse
+For Gmail, use an [App-Specific Password](https://support.google.com/accounts/answer/185833).
 
 ## 🎨 Customization
 
-### Tailwind Configuration
-
-Customize the theme by modifying `tailwind.config.mjs`:
-- Colors
-- Typography
-- Spacing
-- Breakpoints
-
 ### Content
+- Edit main content in `src/pages/index.astro`
+- Modify components in `src/components/`
+- Update styles in `tailwind.config.mjs`
 
-Update the content in the `src/pages` and `src/components` directories.
+### Styling
+- Colors: Update `tailwind.config.mjs`
+- Typography: Modify font imports in `Layout.astro`
+- Components: Edit individual component files
 
-## 📝 License
+### Images
+- Replace `public/preview.png` with your site preview
+- Update favicon in `public/favicon.svg`
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+## 📦 Building for Production
+
+1. **Build the site**
+```bash
+npm run build
+```
+
+2. **Preview the build**
+```bash
+npm run preview
+```
+
+The built files will be in the `dist/` directory.
 
 ## 🤝 Contributing
 
-Contributions are welcome! Please read our [Contributing Guidelines](CONTRIBUTING.md) for details.
+Contributions are welcome! Please read our [Contributing Guide](CONTRIBUTING.md).
 
-## 📧 Support
+1. Fork the repository
+2. Create your feature branch
+3. Commit your changes
+4. Push to the branch
+5. Open a Pull Request
 
-For support, please [open an issue](https://github.com/locobean/servland/issues) on GitHub.
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 💖 Support
+
+- Star this repository
+- Report issues
+- Follow for updates
+
+---
+
+Made with ❤️ by [locobean](https://github.com/locobean)
