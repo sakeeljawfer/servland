@@ -96,7 +96,7 @@ if (!empty($response['errors'])) {
 }
 
 // Prepare email content with additional security measures
-$to = "info@example.com"; // Replace with your email
+$to = "liam@341-webdesign.com"; // Replace with your email
 $subject = "New Contact Form Submission";
 $email_content = "
 <!DOCTYPE html>
