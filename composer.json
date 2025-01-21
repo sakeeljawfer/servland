@@ -1,20 +1,6 @@
 {
     "name": "locobean/servland",
-    "description": "Secure PHP form handler for Servland theme",
+    "description": "Modern business landing page theme built with Astro and Tailwind CSS",
     "type": "project",
-    "require": {
-        "php": "^8.0",
-        "phpmailer/phpmailer": "^6.8",
-        "vlucas/phpdotenv": "^5.5"
-    },
-    "autoload": {
-        "psr-4": {
-            "Servland\\": "src/"
-        }
-    },
-    "config": {
-        "optimize-autoloader": true,
-        "preferred-install": "dist",
-        "sort-packages": true
-    }
+    "license": "MIT"
 }

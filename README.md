@@ -17,7 +17,7 @@ A modern, responsive, and accessible theme built with Astro and Tailwind CSS, pe
 - 📱 **Fully Responsive**: Looks great on all devices
 - 🎨 **Modern Design**: Clean and professional business landing page
 - 🔍 **SEO Optimized**: Meta tags, Open Graph, Twitter Cards
-- 📨 **Contact Form**: Ready-to-use PHP contact form
+- 📨 **Contact Form**: Secure form handling with EmailJS and reCAPTCHA
 - 🌅 **Parallax Effects**: Smooth scrolling parallax background
 - 🎯 **Analytics Ready**: Easy to add your analytics code
 - ♿️ **WCAG 2.1 Accessible**: ARIA labels, keyboard navigation, screen reader friendly
@@ -30,31 +30,34 @@ A modern, responsive, and accessible theme built with Astro and Tailwind CSS, pe
 - [Astro](https://astro.build)
 - [Tailwind CSS](https://tailwindcss.com)
 - [TypeScript](https://www.typescriptlang.org/)
-- PHP (for form handling)
+- [EmailJS](https://www.emailjs.com/) (for form handling)
 
 ## 📦 Project Structure
 
 ```text
 /
 ├── public/
-│   ├── assets/
-│   │   └── images/
 │   ├── favicon.ico
-│   ├── favicon.svg
-│   └── send-email.php
+│   ├── robots.txt
+│   └── sitemap.xml
 ├── src/
 │   ├── components/
-│   │   ├── CookieConsent.astro
-│   │   ├── ParallaxBackground.astro
-│   │   ├── ScrollToTop.astro
-│   │   └── ThemeToggle.astro
+│   │   ├── ContactForm.astro
+│   │   └── ...
 │   ├── layouts/
 │   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
+│   ├── lib/
+│   │   └── send-email.ts
+│   ├── pages/
+│   │   ├── api/
+│   │   │   └── contact.astro
+│   │   └── index.astro
+│   └── styles/
+│       └── global.css
+└── package.json
 ```
 
-## 🚀 Quick Start
+## 🚀 Getting Started
 
 1. **Clone the theme**
    ```bash
@@ -67,15 +70,27 @@ A modern, responsive, and accessible theme built with Astro and Tailwind CSS, pe
    npm install
    ```
 
-3. **Start development server**
+3. **Configure environment variables**
+   ```bash
+   cp .env.example .env
+   ```
+   Then edit `.env` and add your EmailJS and reCAPTCHA credentials.
+
+4. **Start development server**
    ```bash
    npm run dev
    ```
 
-4. **Build for production**
-   ```bash
-   npm run build
-   ```
+## 📧 Contact Form Setup
+
+1. Create an account at [EmailJS](https://www.emailjs.com/)
+2. Create an email service and template
+3. Get your EmailJS credentials:
+   - Service ID
+   - Template ID
+   - User ID (Public Key)
+4. Set up [reCAPTCHA v2](https://www.google.com/recaptcha)
+5. Add credentials to your `.env` file
 
 ## 🎨 Customization
 
@@ -142,29 +157,15 @@ The main page (`src/pages/index.astro`) includes:
    - Hover effects
 
 4. **Contact Form**
-   - PHP backend integration
+   - EmailJS backend integration
    - Form validation
    - Success/error handling
-   - CSRF protection
+   - reCAPTCHA protection
 
 5. **Footer**
    - Social media links
    - Copyright notice
    - Responsive layout
-
-## 📧 Contact Form Setup
-
-⚠️ **Important Security Note**: The included PHP script (`send-email.php`) should be thoroughly tested and reviewed for security before deployment. Consider implementing additional security measures such as:
-- Rate limiting
-- Input validation
-- Email verification
-- Server-side sanitization
-
-1. Configure your PHP environment
-2. Update `public/send-email.php` with your email
-3. Set up CSRF protection
-4. Test the form submission thoroughly
-5. Implement additional security measures as needed
 
 ## 🌙 Dark Mode
 
@@ -195,8 +196,8 @@ Breakpoints:
 Common issues and solutions:
 
 1. **Contact form not working**
-   - Check PHP configuration
-   - Verify email settings
+   - Check EmailJS configuration
+   - Verify reCAPTCHA setup
    - Check server logs
    - Verify security settings
 
@@ -220,7 +221,7 @@ MIT License - feel free to use for personal or commercial projects.
 ## 📝 Recent Changes
 
 - Enhanced mobile responsiveness for phone icon in navigation
-- Added security notes for PHP contact form
+- Added security notes for EmailJS contact form
 - Updated project structure
 - Optimized background animations
 - Improved dark mode compatibility
