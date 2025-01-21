@@ -43,8 +43,6 @@ A modern, responsive, and accessible theme built with Astro and Tailwind CSS, pe
 │   │   └── Layout.astro
 │   └── pages/
 │       └── index.astro
-└── php/
-    └── (removed)
 ```
 
 ## 🚀 Quick Start
@@ -120,7 +118,7 @@ colors: {
 The main page (`src/pages/index.astro`) includes:
 
 1. **Header**
-   - Navigation menu
+   - Navigation menu with enhanced mobile phone icon
    - Theme toggle
    - Responsive mobile menu
 
@@ -147,10 +145,17 @@ The main page (`src/pages/index.astro`) includes:
 
 ## 📧 Contact Form Setup
 
+⚠️ **Important Security Note**: The included PHP script (`send-email.php`) should be thoroughly tested and reviewed for security before deployment. Consider implementing additional security measures such as:
+- Rate limiting
+- Input validation
+- Email verification
+- Server-side sanitization
+
 1. Configure your PHP environment
 2. Update `public/send-email.php` with your email
 3. Set up CSRF protection
-4. Test the form submission
+4. Test the form submission thoroughly
+5. Implement additional security measures as needed
 
 ## 🌙 Dark Mode
 
@@ -184,6 +189,7 @@ Common issues and solutions:
    - Check PHP configuration
    - Verify email settings
    - Check server logs
+   - Verify security settings
 
 2. **Dark mode not persisting**
    - Clear localStorage
@@ -202,11 +208,13 @@ MIT License - feel free to use for personal or commercial projects.
 4. Push to the branch
 5. Open a pull request
 
-## 📞 Support
+## 📝 Recent Changes
 
-- Create an issue
-- Email: support@example.com
-- Documentation: [Link to docs]
+- Enhanced mobile responsiveness for phone icon in navigation
+- Added security notes for PHP contact form
+- Updated project structure
+- Optimized background animations
+- Improved dark mode compatibility
 
 ## 🙏 Credits
 
