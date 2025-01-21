@@ -40,3 +40,13 @@ coverage/
 *.pem
 .cache
 .temp
+
+# Sensitive files
+src/send-email.php
+*.log
+error_log
+vendor/
+
+# Composer
+composer.phar
+composer.lock
