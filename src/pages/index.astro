@@ -87,7 +87,7 @@ import ThemeToggle from '../components/ThemeToggle.astro';
             Message Us
           </h3>
           <form 
-            action="/emailnow.php" 
+            action="/process-form.php" 
             method="POST" 
             class="space-y-4"
             id="contactForm"
@@ -113,6 +113,17 @@ import ThemeToggle from '../components/ThemeToggle.astro';
                 required
                 class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:ring-brand-blue focus:border-brand-blue dark:bg-gray-700 dark:text-white"
                 placeholder="your@email.com"
+              />
+            </div>
+            <div>
+              <label for="tel" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Phone Number</label>
+              <input
+                type="tel"
+                id="tel"
+                name="tel"
+                required
+                class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:ring-brand-blue focus:border-brand-blue dark:bg-gray-700 dark:text-white"
+                placeholder="Your phone number"
               />
             </div>
             <div>
@@ -144,6 +155,21 @@ import ThemeToggle from '../components/ThemeToggle.astro';
           </form>
 
           <script>
+            // Get CSRF token on page load
+            let csrfToken = '';
+            
+            async function getCsrfToken() {
+              try {
+                const response = await fetch('/process-form.php');
+                csrfToken = response.headers.get('X-CSRF-Token');
+              } catch (error) {
+                console.error('Error fetching CSRF token:', error);
+              }
+            }
+
+            // Get token when page loads
+            getCsrfToken();
+
             const form = document.getElementById('contactForm');
             const formMessage = document.getElementById('formMessage');
             const submitButton = form?.querySelector('button[type="submit"]');
@@ -157,12 +183,16 @@ import ThemeToggle from '../components/ThemeToggle.astro';
               // Show loading state
               submitButton.disabled = true;
               loadingSpinner.classList.remove('hidden');
+              formMessage.classList.add('hidden');
               
               try {
                 const formData = new FormData(form);
                 const response = await fetch(form.action, {
                   method: 'POST',
                   body: formData,
+                  headers: {
+                    'X-CSRF-Token': csrfToken
+                  }
                 });
 
                 const result = await response.json();
@@ -174,15 +204,21 @@ import ThemeToggle from '../components/ThemeToggle.astro';
                   formMessage.classList.add('bg-green-100', 'text-green-700');
                   formMessage.textContent = result.message;
                   form.reset();
+                  // Get new CSRF token for next submission
+                  await getCsrfToken();
                 } else {
                   formMessage.classList.add('bg-red-100', 'text-red-700');
-                  formMessage.textContent = result.message || 'Something went wrong. Please try again.';
+                  if (result.errors && result.errors.length > 0) {
+                    formMessage.textContent = result.errors.join('\n');
+                  } else {
+                    formMessage.textContent = result.message || 'An error occurred. Please try again.';
+                  }
                 }
               } catch (error) {
-                console.error('Error:', error);
-                formMessage.classList.remove('hidden', 'bg-green-100', 'text-green-700');
+                console.error('Form submission error:', error);
+                formMessage.classList.remove('hidden');
                 formMessage.classList.add('bg-red-100', 'text-red-700');
-                formMessage.textContent = 'Something went wrong. Please try again.';
+                formMessage.textContent = 'Network error. Please check your connection and try again.';
               } finally {
                 // Reset button state
                 submitButton.disabled = false;
