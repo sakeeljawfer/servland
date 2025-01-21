@@ -1,4 +1,4 @@
-# Servland - Professional Service Business Theme for Astro
+# Servland - Business Landing Page Astro Theme
 
 ![Servland Theme](preview.png)
 
@@ -49,7 +49,7 @@ A modern, responsive, and accessible theme built with Astro and Tailwind CSS, pe
 
 1. **Clone the theme**
    ```bash
-   git clone https://github.com/yourusername/servland.git my-website
+   git clone https://github.com/locobean/servland.git my-website
    cd my-website
    ```
 
