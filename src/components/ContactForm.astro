@@ -36,11 +36,11 @@ const csrfToken = crypto.randomUUID();
       type="tel" 
       name="tel" 
       id="tel"
+      required
       pattern="[0-9]{10}"
       title="Please enter a valid 10-digit phone number"
       class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 dark:bg-gray-800 dark:border-gray-600 sm:text-sm md:text-base"
     />
-    <p class="text-sm text-gray-500 dark:text-gray-400">Optional, format: 1234567890</p>
     <p class="text-sm text-red-600 dark:text-red-400 hidden" id="telError"></p>
   </div>
 
@@ -116,7 +116,6 @@ const csrfToken = crypto.randomUUID();
   }
 
   function validatePhone(tel: string): boolean {
-    if (!tel) return true; // Phone is optional
     const phoneRegex = /^[0-9]{10}$/;
     return phoneRegex.test(tel);
   }
@@ -147,8 +146,8 @@ const csrfToken = crypto.randomUUID();
       showError(emailError, !email ? 'Email is required' : 'Please enter a valid email address');
       hasError = true;
     }
-    if (tel && !validatePhone(tel)) {
-      showError(telError, 'Please enter a valid 10-digit phone number');
+    if (!tel || !validatePhone(tel)) {
+      showError(telError, !tel ? 'Phone number is required' : 'Please enter a valid 10-digit phone number');
       hasError = true;
     }
     if (!message) {

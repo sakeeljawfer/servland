@@ -27,14 +27,19 @@ export async function send_email(formData: FormData) {
   // Validate form data
   const name = formData.get('name')?.toString();
   const email = formData.get('email')?.toString();
+  const tel = formData.get('tel')?.toString();
   const message = formData.get('message')?.toString();
 
-  if (!name || !email || !message) {
+  if (!name || !email || !tel || !message) {
     return { error: 'All fields are required' };
   }
 
   if (!email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
     return { error: 'Invalid email address' };
+  }
+
+  if (!tel.match(/^[0-9]{10}$/)) {
+    return { error: 'Invalid phone number format' };
   }
 
   try {
@@ -50,6 +55,7 @@ export async function send_email(formData: FormData) {
         template_params: {
           from_name: name,
           from_email: email,
+          tel: tel,
           message: message
         }
       })
