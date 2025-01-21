@@ -73,6 +73,48 @@ npm run preview
 pnpm preview
 ```
 
+## 📧 Contact Form Configuration
+
+The theme includes a contact form that needs to be configured with an email service to handle form submissions. By default, the project is set up to use [EmailJS](https://www.emailjs.com/), but you can modify it to work with your preferred email service provider.
+
+### Setting up EmailJS
+
+1. Create a free account at [EmailJS](https://www.emailjs.com/)
+2. Create an email service and template in your EmailJS dashboard
+3. Update your `.env` file with your EmailJS credentials:
+```env
+EMAILJS_SERVICE_ID=your-service-id
+EMAILJS_TEMPLATE_ID=your-template-id
+EMAILJS_USER_ID=your-public-key
+```
+
+### Using a Different Email Service
+
+You can modify the contact form to work with any email service of your choice:
+
+1. Choose your preferred email service provider (SendGrid, AWS SES, etc.)
+2. Update the form submission logic in `src/components/ContactForm.astro`
+3. Modify the environment variables in `.env` accordingly
+
+### reCAPTCHA Integration (Optional)
+
+To protect your form from spam:
+
+1. Get your reCAPTCHA keys from [Google reCAPTCHA](https://www.google.com/recaptcha/admin)
+2. Add them to your `.env`:
+```env
+PUBLIC_RECAPTCHA_SITE_KEY=your-site-key
+RECAPTCHA_SECRET_KEY=your-secret-key
+```
+
+### Security Notes
+
+- Never commit your `.env` file to version control
+- Use HTTPS in production
+- Regularly update your dependencies
+- Consider implementing rate limiting
+- Monitor your email service for any abuse
+
 ## 🎨 Customization
 
 ### Tailwind Configuration
