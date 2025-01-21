@@ -29,24 +29,33 @@ pnpm-debug.log*
 .vscode
 *.swp
 *.swo
+
+# OS generated files
 .DS_Store
-.fleet
-.project
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
 
-# testing
+# Testing
 coverage/
+.nyc_output
 
-# misc
-*.pem
-.cache
-.temp
-
-# Sensitive files
-src/send-email.php
+# Temporary files
 *.log
-error_log
-vendor/
+*.tmp
+*.temp
 
-# Composer
-composer.phar
-composer.lock
+# Local Netlify folder
+.netlify
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Optional stylelint cache
+.stylelintcache
