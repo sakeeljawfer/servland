@@ -83,14 +83,51 @@ A modern, responsive, and accessible theme built with Astro and Tailwind CSS, pe
 
 ## 📧 Contact Form Setup
 
-1. Create an account at [EmailJS](https://www.emailjs.com/)
+The contact form is designed to be flexible and work with various email service providers. By default, it's configured to work with EmailJS, but you can easily modify it to work with your preferred email service.
+
+### Option 1: Using EmailJS (Recommended for Quick Setup)
+1. Create a free account at [EmailJS](https://www.emailjs.com/)
 2. Create an email service and template
-3. Get your EmailJS credentials:
-   - Service ID
-   - Template ID
-   - User ID (Public Key)
-4. Set up [reCAPTCHA v2](https://www.google.com/recaptcha)
-5. Add credentials to your `.env` file
+3. Copy `.env.example` to `.env` and add your credentials:
+   ```env
+   # Never commit this file to your repository
+   PUBLIC_RECAPTCHA_SITE_KEY=your-key
+   RECAPTCHA_SECRET_KEY=your-key
+   EMAILJS_SERVICE_ID=your-id
+   EMAILJS_TEMPLATE_ID=your-id
+   EMAILJS_USER_ID=your-public-key
+   ```
+
+### Option 2: Using Your Own Email Service
+1. Modify `src/lib/send-email.ts` to use your preferred email service
+2. Update the environment variables in `.env` accordingly
+3. Update the contact form component if needed
+
+### Security Notes
+- Never commit `.env` file to your repository
+- Keep your API keys and credentials private
+- Use environment variables for all sensitive data
+- Consider implementing rate limiting in production
+- Always use HTTPS in production
+
+### Testing the Form
+1. Set up reCAPTCHA:
+   - Get your keys from [Google reCAPTCHA](https://www.google.com/recaptcha/admin)
+   - Add them to your `.env` file
+2. Configure your email service
+3. Run the development server:
+   ```bash
+   npm run dev
+   ```
+4. Test the form at `http://localhost:4321`
+
+### Production Deployment
+When deploying to production:
+1. Set up environment variables on your hosting platform
+2. Never expose sensitive credentials in your code or repository
+3. Configure proper CORS settings if needed
+4. Enable HTTPS
+5. Test the form thoroughly in production environment
 
 ## 🎨 Customization
 
