@@ -85,9 +85,13 @@ const fullTitle = title === siteTitle ? title : `${title} | ${siteTitle}`;
     </script>
   </head>
   <body class="min-h-screen bg-white dark:bg-gray-900 dark:text-gray-100 transition-colors duration-200 font-lato flex flex-col">
-    <div class="flex-grow container">
-      <slot />
+    <slot name="header" />
+    <div class="flex-grow">
+      <div class="container mx-auto px-4">
+        <slot />
+      </div>
     </div>
+    <slot name="footer" />
     <CookieConsent />
   </body>
 </html>

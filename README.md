@@ -96,6 +96,43 @@ You can modify the contact form to work with any email service of your choice:
 2. Update the form submission logic in `src/components/ContactForm.astro`
 3. Modify the environment variables in `.env` accordingly
 
+### Email Configuration
+
+The contact form supports two methods for handling email submissions:
+
+#### Method 1: Nodemailer with SMTP
+
+This method uses Nodemailer to send emails via SMTP. Ideal for Gmail or other email providers.
+
+1. Copy `.env.example` to `.env`
+2. Configure the following variables in your `.env` file:
+```env
+EMAIL_USERNAME=your-email@example.com
+EMAIL_PASSWORD=your-app-specific-password
+RECIPIENT_EMAIL=recipient@example.com
+SECRET_KEY=your-secret-key-for-hashing
+```
+
+Note: For Gmail, you'll need to use an App-Specific Password. [Learn how to generate one](https://support.google.com/accounts/answer/185833?hl=en)
+
+#### Method 2: EmailJS
+
+This method uses EmailJS for handling email submissions. No server setup required.
+
+1. Create an account at [EmailJS](https://www.emailjs.com/)
+2. Create an email template with the following variables:
+   - `{{name}}` - Sender's name
+   - `{{email}}` - Sender's email
+   - `{{tel}}` - Phone number
+   - `{{message}}` - Message content
+
+3. Configure the following variables in your `.env` file:
+```env
+PUBLIC_EMAILJS_SERVICE_ID=your-service-id
+PUBLIC_EMAILJS_TEMPLATE_ID=your-template-id
+PUBLIC_EMAILJS_USER_ID=your-public-key
+```
+
 ### reCAPTCHA Integration (Optional)
 
 To protect your form from spam:
