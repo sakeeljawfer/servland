@@ -21,7 +21,7 @@ A modern, responsive business landing page theme built with Astro and Tailwind C
 
 1. **Clone the repository**
 ```bash
-git clone https://github.com/yourusername/servland.git
+git clone https://github.com/locobean/servland.git
 cd servland
 ```
 
