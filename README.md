@@ -1,6 +1,6 @@
 # Servland - Business Landing Page Theme
 
-A modern, responsive business landing page theme built with Astro and Tailwind CSS. Perfect for businesses looking for a professional online presence.
+A modern, responsive business landing page theme built with Astro and Tailwind CSS. Perfect for businesses looking for an effective and speedy online presence.
 
 ![Servland Preview](preview.png)
 
