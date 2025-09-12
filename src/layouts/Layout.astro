@@ -11,13 +11,13 @@ interface Props {
 
 const {
   title,
-  description = "Professional business landing page built with Astro and Tailwind CSS. Fast, responsive, and customizable.",
+  description = "Pratik Yapı, seramik ve mermer döşemeden boya, badana, sıva ve alçıpan işlerine; elektrik, su ve tesisat çözümlerinden komple yenileme hizmetlerine kadar geniş bir yelpazede profesyonel hizmet sunar. Deneyimli ekibimiz, kaliteli malzeme ve titiz işçilikle estetik, dayanıklı ve güvenilir yapılar inşa eder.",
   image = "/preview.png",
   canonicalURL = Astro.url,
 } = Astro.props;
 
 // Construct meta data
-const siteTitle = "Servland - Business Landing Page";
+const siteTitle = "PRATIK YAPI - Güvenilir İnşaat ve Yenileme Çözümleri";
 const fullTitle = title === siteTitle ? title : `${title} | ${siteTitle}`;
 ---
 
@@ -32,7 +32,7 @@ const fullTitle = title === siteTitle ? title : `${title} | ${siteTitle}`;
     <meta name="title" content={fullTitle} />
     <meta name="description" content={description} />
     <meta name="author" content="locobean" />
-    <meta name="keywords" content="business, landing page, astro, tailwind css, responsive design, dark mode, professional website" />
+    <meta name="keywords" content="inşaat, seramik döşeme, mermer döşeme, boya ve badana, sıva, alçıpan, elektrik tesisatı, su tesisatı, ev tadilatı, yapı yenileme, inşaat hizmetleri, pratik yapı, inşaat şirketi, dekorasyon, anahtar teslim inşaat" />
     <meta name="robots" content="index, follow" />
     
     <!-- Favicon -->
